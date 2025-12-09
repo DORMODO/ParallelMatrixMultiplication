@@ -1,3 +1,5 @@
+package model;
+
 public class Matrix {
     private final double[][] data;
     private final int rows;
@@ -5,7 +7,7 @@ public class Matrix {
 
     public Matrix(double[][] data) {
         if (data == null || data.length == 0 || data[0].length == 0) {
-            throw new IllegalArgumentException("Matrix cannot be null or empty.");
+            throw new IllegalArgumentException("model.Matrix cannot be null or empty.");
         }
 
         // Check for jagged arrays
@@ -13,7 +15,7 @@ public class Matrix {
         for (int i = 1; i < data.length; i++) {
             if (data[i].length != expectedCols) {
                 throw new IllegalArgumentException(
-                        "Matrix must be rectangular!"
+                        "model.Matrix must be rectangular!"
                 );
             }
         }

@@ -1,6 +1,8 @@
+package model;
+
 public class MatrixBenchmark {
     public static void runThresholdTuning(int size, int[] thresholds) {
-        System.out.println("\n=== Threshold Tuning for Matrix " + size + "x" + size + " ===");
+        System.out.println("\n=== Threshold Tuning for model.Matrix " + size + "x" + size + " ===");
         System.out.printf("%-10s %-15s %-10s\n", "Threshold", "Parallel Time(ms)", "Speedup");
 
         Matrix A = MatrixUtils.randomMatrix(size, size);
@@ -22,8 +24,8 @@ public class MatrixBenchmark {
     }
 
     public static void main(String[] args) {
-        int[] thresholds = {16, 32, 64, 128, 256};
-        int[] sizes = {256, 512, 1024};
+        int[] thresholds = {16, 32, 64, 128, 256, 512};
+        int[] sizes = {256, 512, 1024, 2048};
 
         for (int size : sizes) {
             runThresholdTuning(size, thresholds);
