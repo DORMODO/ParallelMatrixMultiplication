@@ -203,7 +203,7 @@ public class MatrixGUI extends JFrame {
     private void addControls() {
         JPanel top = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10));
 
-        sizeBox = new JComboBox<>(new String[]{"128", "256", "512", "1024", "2048"});
+        sizeBox = new JComboBox<>(new String[]{"128", "256", "512", "1024"});
         thresholdField = new JTextField("64", 6);
         runButton = new JButton("Run Test");
         clearButton = new JButton("Clear Results");
