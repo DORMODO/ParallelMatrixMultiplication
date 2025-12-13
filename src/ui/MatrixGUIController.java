@@ -38,7 +38,7 @@ public class MatrixGUIController {
 
         view.setControlsEnabled(false);
 
-        // Start Background Worker (Background عشان في الFrezz الي كان بيحصل :))
+        // Start Background Worker (Background عشان في ال Frezz الي كان بيحصل :))
         SwingWorker<Void, Long> worker = new SwingWorker<>() {
             private int rowIndex = -1;
             private long seqTime = 0L;

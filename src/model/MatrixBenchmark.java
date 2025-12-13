@@ -25,7 +25,7 @@ public class MatrixBenchmark {
 
     public static void main(String[] args) {
         int[] thresholds = {16, 32, 64, 128, 256, 512};
-        int[] sizes = {256, 512, 1024, 2048};
+        int[] sizes = {256, 512, 1024};
 
         for (int size : sizes) {
             runThresholdTuning(size, thresholds);

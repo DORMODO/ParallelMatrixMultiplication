@@ -7,7 +7,7 @@ public class Matrix {
 
     public Matrix(double[][] data) {
         if (data == null || data.length == 0 || data[0].length == 0) {
-            throw new IllegalArgumentException("model.Matrix cannot be null or empty.");
+            throw new IllegalArgumentException("Matrix cannot be null or empty.");
         }
 
         // Check for jagged arrays
@@ -15,7 +15,7 @@ public class Matrix {
         for (int i = 1; i < data.length; i++) {
             if (data[i].length != expectedCols) {
                 throw new IllegalArgumentException(
-                        "model.Matrix must be rectangular!"
+                        "Matrix must be rectangular!"
                 );
             }
         }
@@ -36,6 +36,7 @@ public class Matrix {
         return cols;
     }
 
+    // Get element at (row, col)
     public double get(int row, int col) {
         if (row < 0 || row >= rows || col < 0 || col >= cols) {
             throw new IndexOutOfBoundsException(

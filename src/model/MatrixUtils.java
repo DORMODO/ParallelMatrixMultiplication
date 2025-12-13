@@ -31,8 +31,10 @@ public class MatrixUtils {
     }
 
 //    public static long measure(Runnable task) {
-//        int iterations = 5;
+//        // Warmup: (أتكلمت عليه مع المعيد)
+//        task.run();
 //
+//        int iterations = 5;
 //        long totalTime = 0;
 //        for (int i = 0; i < iterations; i++) {
 //            long start = System.nanoTime();
@@ -41,7 +43,6 @@ public class MatrixUtils {
 //            totalTime += (end - start);
 //        }
 //
-//        // Return average time in milliseconds
 //        return TimeUnit.NANOSECONDS.toMillis(totalTime / iterations);
 //    }
 

@@ -11,9 +11,6 @@ public class ForkJoinMatrixMultiplier implements MatrixMultiplier {
     private final ForkJoinPool pool;
 
     public ForkJoinMatrixMultiplier(int threshold) {
-        if (threshold < 1) {
-            throw new IllegalArgumentException("Threshold must be at least 1");
-        }
         this.threshold = threshold;
         this.pool = ForkJoinPool.commonPool();
     }
@@ -33,17 +30,19 @@ public class ForkJoinMatrixMultiplier implements MatrixMultiplier {
         // Create result matrix (all threads will write to this)
         double[][] result = new double[m][p];
 
-        // Shared counter for completed rows
+        // Shared counter for completed rows (Is atomic to ensure thread-safety)
         AtomicInteger completedRows = new AtomicInteger(0);
 
         // Create and execute the root task
         MultiplyTask task = new MultiplyTask(a, b, result, 0, m, completedRows, progressCallback);
-        pool.invoke(task);
+        // invoke() method from ForkJoinPool to start the task and blocks until finished.
+        pool.invoke(task); // موجوده في أخر شرائح شرحناها
 
         return new Matrix(result);
     }
 
 
+    // RecursiveAction is used for tasks that do not return a result (مثل ضرب المصفوفات هنا)
     private class MultiplyTask extends RecursiveAction {
 
         private final Matrix a;
@@ -67,6 +66,8 @@ public class ForkJoinMatrixMultiplier implements MatrixMultiplier {
             this.progressCallback = progressCallback;
         }
 
+        // compute() method is where the task's logic is implemented, it overrides the abstract method from RecursiveAction.
+        // This method decides whether to compute directly or split the task further.
         @Override
         protected void compute() {
             int rowCount = endRow - startRow;
@@ -85,6 +86,9 @@ public class ForkJoinMatrixMultiplier implements MatrixMultiplier {
             }
         }
 
+        // Direct computation of the assigned rows without further splitting.
+        // عملها هو ضرب المصفوفات العادي
+        // بعد ما يخلص كل صف بيزيد العداد وبيبلغ ال progressCallback لو مش null
         private void computeDirectly() {
             int n = a.getCols();
             int p = b.getCols();
