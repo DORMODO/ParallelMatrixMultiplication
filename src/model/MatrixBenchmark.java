@@ -1,7 +1,7 @@
 package model;
 
 public class MatrixBenchmark {
-    public static void runThresholdTuning(int size, int[] thresholds) {
+      public static void runThresholdTuning(int size, int[] thresholds) {
         System.out.println("\n=== Threshold Tuning for model.Matrix " + size + "x" + size + " ===");
         System.out.printf("%-10s %-15s %-10s\n", "Threshold", "Parallel Time(ms)", "Speedup");
 
@@ -31,4 +31,6 @@ public class MatrixBenchmark {
             runThresholdTuning(size, thresholds);
         }
     }
+
 }
+  
