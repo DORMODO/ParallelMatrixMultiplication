@@ -29,7 +29,7 @@ public class MatrixTest {
             System.out.println("FAIL");
         }
 
-        // Test 2: Row × Column (dot product)
+        // Test 2: Row × Column
         System.out.print("Test 2 - Edge case: Row × Column... ");
         Matrix row = new Matrix(new double[][]{{1, 2, 3}});
         Matrix col = new Matrix(new double[][]{{4}, {5}, {6}});

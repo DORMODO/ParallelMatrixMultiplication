@@ -36,7 +36,6 @@ public class Matrix {
         return cols;
     }
 
-    // Get element at (row, col)
     public double get(int row, int col) {
         if (row < 0 || row >= rows || col < 0 || col >= cols) {
             throw new IndexOutOfBoundsException(

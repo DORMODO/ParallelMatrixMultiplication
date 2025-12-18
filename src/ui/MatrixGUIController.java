@@ -14,11 +14,9 @@ public class MatrixGUIController {
     public MatrixGUIController(MatrixGUI view) {
         this.view = view;
 
-        // Connect the View's buttons to this Controller's methods
         this.view.addRunListener(this::runBenchmark);
         this.view.addClearListener(_ -> view.clearTable());
 
-        // Show the UI only after everything is wired up
         this.view.setVisible(true);
     }
 
@@ -26,7 +24,7 @@ public class MatrixGUIController {
         int size;
         int threshold;
 
-        // Get Inputs from View
+        // Get Inputs
         try {
             size = view.getSelectedSize();
             threshold = view.getThreshold();

@@ -31,7 +31,7 @@ public class MatrixGUI extends JFrame {
         runButton = new JButton("Run Test");
         clearButton = new JButton("Clear Results");
 
-        top.add(new JLabel("model.Matrix Size:"));
+        top.add(new JLabel("Matrix Size:"));
         top.add(sizeBox);
         top.add(new JLabel("Threshold:"));
         top.add(thresholdField);

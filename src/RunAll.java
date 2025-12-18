@@ -12,12 +12,12 @@ public class RunAll {
         System.out.println("PARALLEL MATRIX MULTIPLICATION");
         System.out.println("=".repeat(70));
 
-        // Step 1: Correctness Tests
+        // Step 1: Tests
         System.out.println("\n[STEP 1/3] Running Correctness Tests...\n");
         MatrixTest.main(args);
 
-        // Step 2: Performance Benchmarks
-        System.out.println("\n[STEP 2/3] Running Performance Benchmarks...\n");
+        // Step 2: Threshold Tuning
+        System.out.println("\n[STEP 2/3] Running Threshold Tuning...\n");
         MatrixBenchmark.main(args);
 
         // Step 3: Launch GUI
